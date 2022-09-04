@@ -14,10 +14,10 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>Traveller</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script type = "text/javascript" src="js/connect.js"> getHotelName(); </script>
-    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
 </head>
 
 <body>
@@ -159,7 +159,7 @@
                 <div class="row row-cols-1 row-cols-md-12 row-cols-lg-12 row-cols-xl-3 g-4">
                     <div class="col">
                         <div class="card">
-                            <img src="" class="card-img-top" alt="...">
+                            <img src="./imagens/renaissence.png" class="card-img-top" alt="...">
                         </div>
                         <div id="map"> </div>
                         <div class="card-body">
@@ -171,6 +171,7 @@
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                               </div>
+                              <a id="btn-modal" class=" box btn bg-warning mr-2" onclick="getMore()"> Saiba mais </a>
                         </div>
                     </div>
                     <div class="col">
@@ -186,6 +187,7 @@
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                               </div>
+                              <a id="btn-modal" class=" box btn bg-warning mr-2" onclick="getMore()"> Saiba mais </a>
                         </div>
                     </div>
                     <div class="col">
@@ -193,7 +195,7 @@
                             <img src="./imagens/blue-tree.png" class="card-img-top" alt="...">
                         </div>
                         <div class="card-body">
-                            <h5 id="title-hotel2" class="card-title"></h5>
+                            <h5 class="card-title"></h5>
                             <div class="aval-stars">
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
@@ -201,13 +203,31 @@
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                               </div>
+                              <a id="btn-modal" class=" box btn bg-warning mr-2" onclick="getMore()"> Saiba mais </a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>    
         </section>
     </main>
-
+    <!-- Modal -->
+    <div class="modal fade" id="meuModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Saiba mais</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar" onclick="closeModal()">
+                <script>function closeModal(){$('#meuModal').modal('toggle')}</script>
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            ...
+        </div>
+        </div>
+    </div>
+    </div>
+    <!-- FIM MODAL -->
     <footer>
         <div class="container">
             <div class="row">

@@ -1,4 +1,4 @@
-async function getHotelName(){
+function getHotelName(){
     const options = {
         method: 'GET',
         url: 'https://booking-com.p.rapidapi.com/v1/hotels/search',
@@ -33,15 +33,20 @@ async function getHotelName(){
                 const picture = response.data.result[i].max_photo_url;
             
                 console.log(hotel_name)
-                var name = document.getElementsByClassName('card-title')[i];
-                name.parentNode.appendChild(document.createTextNode(hotel_name));
+                let h5 = document.createElement('h5');
+                let text = h5.appendChild(document.createTextNode(hotel_name));
+
+                document.getElementsByClassName('card-title')[i].appendChild(h5);
+                
                 var img = document.getElementsByClassName('card-img-top')[i].src = picture;
 
                 i++;
             }
             }).catch(function (error) {
             console.error(error); });
-        
+          
+}
 
-   
+function getMore(){
+    $('#meuModal').modal('toggle')
 }
