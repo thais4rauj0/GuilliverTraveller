@@ -127,6 +127,8 @@ async function getMore(id){
 }
 
 
+// Função que busca a localização atual do usuário
+
 function geoFindMe() {
 
 const status = document.querySelector('#status');
