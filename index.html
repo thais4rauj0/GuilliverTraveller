@@ -17,12 +17,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script type = "text/javascript" src="js/connect.js"> getHotelName(); </script>
     <script type = "text/javascript" src="js/hotel_api.js"></script>
+    
 </head>
 
 <body>
-    <script type = "text/javascript" src="js/connect.js"> getHotelName(); </script>
+       <script>Window.onload = getHotelName();</script>
     <header>
         <div class="container-fluid p-0">
             <nav class="navbar navbar-expand-lg navbar-light">
@@ -97,8 +97,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="input-group mb-3 barra-busca">
-                            <input type="search" class="form-control" placeholder="Pesquise algo..."
-                            <button class="btn btn-outline-secondary botao-busca" type="button" id="find-me" style="font-weight:bold" >Buscar</button>
+                            <input type="search" class="form-control" placeholder="Pesquise algo..."</input>
+                            <button class="btn btn-outline-secondary botao-busca" type="button" id="find-me" style="font-weight:bold">Buscar</button>
               <p id="status"></p>
               <a id="map-link" target="_blank"></a>
                         </div>
@@ -172,7 +172,7 @@
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                               </div>
-                              <a id="btn-modal" class=" box btn bg-warning mr-2" onclick="getMore()"> Saiba mais </a>
+                              <a id="btn-modal" class=" box btn bg-warning mr-2" onclick="getMore(0)"> Saiba mais </a>
                         </div>
                     </div>
                     <div class="col">
@@ -188,7 +188,7 @@
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                               </div>
-                              <a id="btn-modal" class=" box btn bg-warning mr-2" onclick="getMore()"> Saiba mais </a>
+                              <a id="btn-modal" class=" box btn bg-warning mr-2" onclick="getMore(1)"> Saiba mais </a>
                         </div>
                     </div>
                     <div class="col">
@@ -204,7 +204,7 @@
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                               </div>
-                              <a id="btn-modal" class=" box btn bg-warning mr-2" onclick="getMore()"> Saiba mais </a>
+                              <a id="btn-modal" class=" box btn bg-warning mr-2" onclick="getMore(2)"> Saiba mais </a>
                         </div>
                     </div>
                 </div>
@@ -223,7 +223,9 @@
             </button>
         </div>
         <div class="modal-body">
-            ...
+
+            <p>...</p>
+
         </div>
         </div>
     </div>

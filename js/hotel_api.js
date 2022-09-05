@@ -96,13 +96,22 @@ async function getHotelDescription(hotel_id){
 
 
 //Função que Cria o modal com o Saiba mais dos hoteis
-async function getMore(){
+async function getMore(id){
   $('#meuModal').modal('toggle')
-  const hotel_id = await getHotelId(0);
+  const hotel_id = await getHotelId(id);
   
   const data = await getHotelDescription(hotel_id)
+
+  // console.log(data.description)
   
-  console.log(data.description)
+  let p = document.createElement('p');
+  let text = p.appendChild(document.createTextNode(data.description));
+  // console.log(text)
+  
+  const node = document.getElementsByClassName('modal-body')[0];
+
+  node.innerHTML = '';
+  node.appendChild(text)
 
 }
 
