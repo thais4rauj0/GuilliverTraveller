@@ -10,5 +10,5 @@ Documentação da API: https://rapidapi.com/tipsters/api/booking-com/
 URI Busca de Hotel: 'https://booking-com.p.rapidapi.com/v1/hotels/search',
 URI Busca descrição: 'https://booking-com.p.rapidapi.com/v1/hotels/description',
 
-Estamos usando essa api para listar os nomes dos Hoteis e as fotos dos hoteis na aba de hóteis préximos a você, e também para pegar a descrição do hotel e adicionar no modal que tem no botão "saiba mais"
+Estamos usando essa api para listar os nomes dos Hoteis e as fotos dos hoteis na aba de hóteis préximos a você (usando geolocalização) e também para pegar a descrição do hotel e adicionar no modal que tem no botão "saiba mais".
 

@@ -21,7 +21,7 @@ async function GetHotelsByPosition(latitude, longitude) {
         longitude,
       },
       headers: {
-        'X-RapidAPI-Key': '4475d96be6mshda5519e3521df02p15ca2ajsnd6f4821f97f0',
+        'X-RapidAPI-Key': '98d9c7e6ebmshdd5a1ea01f2ec3bp12a797jsn2e9a4bf047ed',
         'X-RapidAPI-Host': 'booking-com.p.rapidapi.com'
       }
     };
@@ -63,13 +63,18 @@ async function getHotelName(){
     data = await getHotelCoordinates()
     while(i < 3){
     // console.log(response.data.result[0].hotel_name);
-        const hotel_name = data.result[i].hotel_name;
+        const hotel_name = data.result[i].hotel_name_trans;
         const picture = data.result[i].max_photo_url;
-    
+        const rate = data.result[i].review_score;
+        const min_price = data.result[i].min_total_price;
+        const ribbon = data.result[i].ribbon_text
         // console.log(hotel_name)
         let h5 = document.createElement('h5');
         let text = h5.appendChild(document.createTextNode(hotel_name));
-        document.getElementsByClassName('card-title')[i].appendChild(h5);   
+        document.getElementsByClassName('card-title')[i].appendChild(h5);
+        document.getElementsByClassName('card-price')[i].appendChild(document.createTextNode("R$" + min_price));
+        document.getElementsByClassName('card-price')[i].style.setProperty('font-size', '18px')
+        document.getElementsByClassName('aval-stars')[i].appendChild(document.createTextNode(rate));
         var img = document.getElementsByClassName('card-img-top')[i].src = picture;
         i++;
     }
@@ -82,7 +87,7 @@ async function getHotelDescription(hotel_id){
     url: 'https://booking-com.p.rapidapi.com/v1/hotels/description',
     params: {hotel_id: hotel_id, locale: 'pt-br'},
     headers: {
-      'X-RapidAPI-Key': '4475d96be6mshda5519e3521df02p15ca2ajsnd6f4821f97f0',
+      'X-RapidAPI-Key': '98d9c7e6ebmshdd5a1ea01f2ec3bp12a797jsn2e9a4bf047ed',
       'X-RapidAPI-Host': 'booking-com.p.rapidapi.com'
     }
   };
@@ -101,7 +106,7 @@ async function getMore(id){
   const hotel_id = await getHotelId(id);
   
   const data = await getHotelDescription(hotel_id)
-
+  const hotel_data = await getHotelCoordinates()
   // console.log(data.description)
   
   let p = document.createElement('p');
@@ -109,9 +114,15 @@ async function getMore(id){
   // console.log(text)
   
   const node = document.getElementsByClassName('modal-body')[0];
-
+  
   node.innerHTML = '';
-  node.appendChild(text)
+  
+  node.appendChild(document.createTextNode("Endereço: " + hotel_data.result[id].address_trans))
+  node.appendChild(document.createElement("br"))
+  node.appendChild(document.createTextNode("Site: " + hotel_data.result[id].url))
+  node.appendChild(document.createElement("br"))
+  node.appendChild("Descrição: " + text)
+  
 
 }
 
